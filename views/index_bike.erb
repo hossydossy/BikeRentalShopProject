@@ -1,0 +1,7 @@
+<h1>Bike</h1>
+
+<% for customer in @customers %>
+<h2><%=customer.format_name() %></h2>
+<a href="/customers/<%= customer.id %>">More info</a>
+<hr/>
+<% end %>

@@ -10,9 +10,19 @@ also_reload('./models/*')
 
 
 
-#INDEX - GET '/rentals' => all the rentals
+#INDEX - GET '/customers' => all the customers
+
+get '/customers' do
+  @customers = Customer.all()
+  erb(:index)
+end
 
 #NEW - GET '/rentals/new' => page where we process a rental
+
+get '/customers/new' do
+  @rentals=Rental.all()
+  erb (:new_customer)
+end
 
 #EDIT - GET '/students/:id/edit' => page where we can edit student[:id]s details
 
