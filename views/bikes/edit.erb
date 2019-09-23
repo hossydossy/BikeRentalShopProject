@@ -1,0 +1,13 @@
+<h1>EDIT A BIKE</h1>
+
+<form method="POST" action="/bikes/<%=@bike.id() %>">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text" value="<%=@bike.name%>"/>
+  <label for="size">Size:</label>
+  <input id="size" name="size" type="number" max="5" value="<%=@bike.size%>"/>
+  <label for="bike_available">Bike available:</label>
+  <input id="bike_available" name="bike_available" type="boolean" value="<%=@bike.bike_available%>"/>
+
+  <input type="submit" value="Update bike details">
+
+</form>

@@ -1,0 +1,20 @@
+<h1>EDIT A RENTAL</h1>
+
+<form method="POST" action="/rentals">
+  <label for="customer_id">Customer:</label>
+  <select class="customer" name="customer_id">
+    <% for customer in @customers %>
+    <option value="<%=customer.id%>"><%=customer.name%></option>
+    <% end %>
+  </select>>
+
+  <label for="bike_id">Bike:</label>
+  <select class="bike" name="bike_id">
+    <% for bike in @bikes %>
+    <option value="<%=bike.id%>"><%=bike.name%></option>
+    <% end %>
+  </select>>
+
+  <input type="submit" value="Update student details">
+
+</form>

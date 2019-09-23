@@ -17,15 +17,46 @@ get '/bikes' do
   erb(:index_bike)
 end
 
-#NEW - GET '/rentals/new' => page where we process a rental
+#NEW - GET '/bikes/new' => page where we add a new bike
 
-#EDIT - GET '/students/:id/edit' => page where we can edit student[:id]s details
+get '/bikes/new' do
+  erb (:"bikes/new_bike")
+end
 
-#SHOW - GET '/students/:id' => individual student
+#EDIT - GET '/bikes/:id/edit' => page where we can edit bike[:id] details
 
-#UPDATE - POST '/students/:id' => update a student in the db
+get '/bikes/:id/edit' do
+  @bike = Bike.find(params[:id])
+    erb( :"bikes/edit")
+end
 
-#CREATE - POST '/students' => save the new student to db
+#SHOW - GET '/bikes/:id' => individual bike
 
+get '/bikes/:id' do
+  @bike = Bike.find(params['id'].to_i)
+  erb( :"bikes/show")
+end
 
-#DESTROY - POST '/students/:id/delete' delete student from db
+#UPDATE - POST '/bikes/:id' => update a bike in the db
+
+post '/bikes/:id' do
+@bike = Bike.new(params)
+@bike.update()
+redirect('/bikes')
+end
+
+#CREATE - POST '/bikes' => save the new bike to db
+
+post '/bikes' do
+  bike = Bike.new(params)
+  bike.save()
+  erb( :"bikes/create")
+end
+
+#DESTROY - POST '/bikes/:id/delete' delete bike from db
+
+post '/bikes/:id/delete' do
+  @bike = Bike.find(params[:id])
+  @bike.delete()
+  redirect to '/bikes'
+end

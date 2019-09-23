@@ -1,7 +1,7 @@
 <h1>Rental</h1>
 
-<% for rental in @crentals %>
-<h2><%=rental.format_name() %></h2>
+<% for rental in @rentals %>
+<h2><%=rental() %></h2>
 <a href="/rentals/<%= rental.id %>">More info</a>
 <hr/>
 <% end %>
