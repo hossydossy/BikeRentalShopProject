@@ -79,4 +79,9 @@ class Customer
       return "#{@first_name.capitalize} #{@last_name.capitalize}"
     end
 
+    def self.delete_all()
+      sql = "DELETE FROM customers"
+      SqlRunner.run( sql )
+    end
+
   end

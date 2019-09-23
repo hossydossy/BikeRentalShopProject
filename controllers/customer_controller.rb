@@ -2,11 +2,11 @@
 require('sinatra')
 # reloads file
 require('sinatra/contrib/all')
-require_relative('./models/customer.rb')
-require_relative('./models/bike.rb')
-require_relative('./models/rental.rb')
+require_relative('../models/customer.rb')
+require_relative('../models/bike.rb')
+require_relative('../models/rental.rb')
 # reloads models
-also_reload('./models/*')
+also_reload('../models/*')
 
 
 
@@ -14,7 +14,7 @@ also_reload('./models/*')
 
 get '/customers' do
   @customers = Customer.all()
-  erb( :"customer/index_customers")
+  erb( :"customers/index_customer")
 end
 
 #NEW - GET '/rentals/new' => page where we add a new customer

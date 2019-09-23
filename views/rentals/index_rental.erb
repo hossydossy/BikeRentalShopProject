@@ -1,7 +1,8 @@
 <h1>Rental</h1>
 
 <% for rental in @rentals %>
-<h2><%=rental() %></h2>
-<a href="/rentals/<%= rental.id %>">More info</a>
+<h2><%=rental.customer.format_name() %></h2>
+<h2><%=rental.bike.name() %></h2>
+<a href="/rentals/<%= rental.rental_id %>">More info</a>
 <hr/>
 <% end %>

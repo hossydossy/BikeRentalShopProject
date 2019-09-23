@@ -2,9 +2,9 @@
 require('sinatra')
 # reloads file
 require('sinatra/contrib/all')
-require_relative('./models/customer.rb')
-require_relative('./models/bike.rb')
-require_relative('./models/rental.rb')
+require_relative('../models/customer.rb')
+require_relative('../models/bike.rb')
+require_relative('../models/rental.rb')
 # reloads models
 also_reload('./models/*')
 
@@ -14,7 +14,7 @@ also_reload('./models/*')
 
 get '/bikes' do
   @bikes = Bike.all()
-  erb(:index_bike)
+  erb(:"bikes/index_bike")
 end
 
 #NEW - GET '/bikes/new' => page where we add a new bike

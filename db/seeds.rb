@@ -8,7 +8,7 @@ Bike.delete_all()
 Customer.delete_all()
 Rental.delete_all()
 
-Bike1 = Bike.new({
+bike1 = Bike.new({
   "name" => "Specialized Rockhopper",
   "size" => "1",
   "bike_available" => true
@@ -16,7 +16,7 @@ Bike1 = Bike.new({
 
 bike1.save()
 
-Bike2 = Bike.new({
+bike2 = Bike.new({
   "name" => "Specialized Stumpjumper",
   "size" => "2",
   "bike_available" => true
@@ -24,7 +24,7 @@ Bike2 = Bike.new({
 
 bike2.save()
 
-Bike3 = Bike.new({
+bike3 = Bike.new({
   "name" => "Specialized Hardrock",
   "size" => "1",
   "bike_available" => true
@@ -32,7 +32,7 @@ Bike3 = Bike.new({
 
 bike3.save()
 
-Bike4 = Bike.new({
+bike4 = Bike.new({
   "name" => "Kona Kileuia",
   "size" => "5",
   "bike_available" => true
@@ -40,7 +40,7 @@ Bike4 = Bike.new({
 
 bike4.save()
 
-Bike5 = Bike.new({
+bike5 = Bike.new({
   "name" => "Kona Explosif",
   "size" => "4",
   "bike_available" => false
@@ -48,7 +48,7 @@ Bike5 = Bike.new({
 
 bike5.save()
 
-Bike6 = Bike.new({
+bike6 = Bike.new({
   "name" => "Trek 9000",
   "size" => "1",
   "bike_available" => true
@@ -56,7 +56,7 @@ Bike6 = Bike.new({
 
 bike6.save()
 
-Bike7 = Bike.new({
+bike7 = Bike.new({
   "name" => "Trek 8000",
   "size" => "3",
   "bike_available" => false
@@ -64,7 +64,7 @@ Bike7 = Bike.new({
 
 bike7.save()
 
-Bike8 = Bike.new({
+bike8 = Bike.new({
   "name" => "Klein Attitude",
   "size" => "3",
   "bike_available" => true
@@ -72,7 +72,7 @@ Bike8 = Bike.new({
 
 bike8.save()
 
-Bike9 = Bike.new({
+bike9 = Bike.new({
   "name" => "Cannondale 400",
   "size" => "3",
   "bike_available" => true
@@ -80,7 +80,7 @@ Bike9 = Bike.new({
 
 bike9.save()
 
-Bike10 = Bike.new({
+bike10 = Bike.new({
   "name" => "Cannondale 1000",
   "size" => "3",
   "bike_available" => true

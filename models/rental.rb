@@ -4,7 +4,8 @@ require_relative('./customer.rb')
 
 class Rental
 
-  attr_accessor :customer_id, :bike_id, :rental_id
+  attr_accessor :customer_id, :bike_id
+  attr_reader :rental_id
 
   def initialize(options)
     @customer_id = options['customer_id'].to_i
@@ -23,7 +24,7 @@ class Rental
       $1, $2
     )
     RETURNING rental_id"
-    values = [@customer_id, @bike_id, @rental_id]
+    values = [@customer_id, @bike_id]
     result = SqlRunner.run(sql, values)
     id = result.first['rental_id']
     @rental_id = id
@@ -69,6 +70,31 @@ class Rental
       result = SqlRunner.run(sql, values).first
       rental = Rental.new(result)
       return rental
+    end
+
+    def self.delete_all()
+      sql = "DELETE FROM rentals"
+      SqlRunner.run( sql )
+    end
+
+    def customer()
+      sql = "SELECT * FROM customers
+      WHERE id = $1"
+      values = [@customer_id]
+      results = SqlRunner.run(sql, values)
+      customer_hash = results[0]
+      customer = Customer.new(customer_hash)
+      return customer
+    end
+
+    def bike()
+      sql = "SELECT * FROM bikes
+      WHERE id = $1"
+      values = [@bike_id]
+      results = SqlRunner.run(sql, values)
+      bike_hash = results[0]
+      bike = Bike.new(bike_hash)
+      return bike
     end
 
   end

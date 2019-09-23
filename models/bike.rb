@@ -75,4 +75,9 @@ class Bike
       return bike
     end
 
+    def self.delete_all()
+      sql = "DELETE FROM bikes"
+      SqlRunner.run( sql )
+    end
+
   end

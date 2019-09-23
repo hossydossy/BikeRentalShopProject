@@ -1,7 +1,7 @@
 <h1>Bike</h1>
 
 <% for bike in @bikes %>
-<h2><%=bike() %></h2>
+<h2><%=bike.name() %></h2>
 <a href="/bikes/<%= bike.id %>">More info</a>
 <hr/>
 <% end %>

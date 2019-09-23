@@ -1,10 +1,12 @@
+DROP TABLE rentals;
 DROP TABLE bikes;
 DROP TABLE customers;
-DROP TABLE rentals;
+
 
 CREATE TABLE bikes (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
+  size INT8,
   bike_available BOOLEAN
 );
 
@@ -17,6 +19,6 @@ CREATE TABLE customers (
 
 CREATE TABLE rentals (
   rental_id SERIAL8 PRIMARY KEY,
-  customer_id INT8 REFERENCES customers(id),
-  bike_id INT8 REFERENCES bikes(id)
+  customer_id INT8 REFERENCES customers(id) ON DELETE CASCADE,
+  bike_id INT8 REFERENCES bikes(id) ON DELETE CASCADE
 )
