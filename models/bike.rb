@@ -83,8 +83,8 @@ class Bike
       sql = "SELECT * FROM bikes
       WHERE id = $1"
       values = [id]
-      result = SqlRunner.run(sql, values).first
-      bike = Bike.new(result)
+      result = SqlRunner.run(sql, values)
+      bike = Bike.new(result.first)
       return bike
     end
 

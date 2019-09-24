@@ -10,3 +10,7 @@ get '/' do
   @rentals = Rental.all()
   erb( :index)
 end
+
+get '/about/' do
+  erb( :about)
+end

@@ -1,4 +1,2 @@
-<h1><%= @customer.format_name() %> </h1>
-<% for bike in @customer.bikes %>
-<h1><%= bike.name %> </h1>
-<% end %>
+<h2><%= @customer.format_name() %> </h2>
+<p><%= @customer.address() %> </p>
