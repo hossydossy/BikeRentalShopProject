@@ -1,5 +1,14 @@
-<h1>Rental History</h1>
+<h1>Rental Menu</h1>
 
+<p>
+  <a href="/rental/new<%= %>">Start New Rental</a>
+</p>
+<p>
+  <a href="/bike/unavailable">Current Rentals</a>
+</p>
+
+
+<h2>Rental History</h2>
 <% @rentals.each do |rental| %>
 <p>Customer: <%=rental.customer.name %></p>
 <p>Bike: <%=rental.bike.name %></p>

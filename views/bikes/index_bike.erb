@@ -1,6 +1,16 @@
 <h1>Bikes</h1>
 
-<p><a href="/bike/new<%= %>">Add New Bike</a></p>
+<p>
+  <a href="/bike/new<%= %>">Add New Bike</a>
+</p>
+<hr/>
+<p>
+  <a href="/bike/available">Bikes Available</a>
+</p>
+<hr/>
+<p>
+  <a href="/bike/unavailable">Current Rentals</a>
+</p>
 
 <hr/>
 <% @bikes.each do |bike| %>
@@ -10,6 +20,7 @@
 <p><a href="/bike/<%= bike.id %>/edit">Edit Bike</a></p>
 <form action="/bike/<%= bike.id%>/delete" method="POST">
 <input type="submit" value="Delete This Bike"/>
+
 </form>
 <hr/>
 <% end %>
