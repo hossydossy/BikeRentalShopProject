@@ -1,2 +1,4 @@
-<h1><%= @customer.name %> (customer)</h1>
-<h1><%= @bike.name %> (bike)</h1>
+<h1><%= @customer.format_name() %> </h1>
+<% for bike in @customer.bikes %>
+<h1><%= bike.name %> </h1>
+<% end %>

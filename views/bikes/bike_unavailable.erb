@@ -1,0 +1,17 @@
+<h1>Bikes Unavailable</h1>
+
+
+<hr/>
+<% @bikes.each do |bike| %>
+<p>Bike: <%=bike.name() %></p>
+<p>Bike Size: <%=bike.size %></p>
+
+<!-- add a form with one button: END RENTAL -->
+<!-- Form method post, going to a new route END RENTAL -->
+<form action="/rental/end/<%= bike.id %>" method="POST">
+<input type="submit" value="End This Rental"/>
+</form>
+
+
+<hr>
+<% end %>

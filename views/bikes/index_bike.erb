@@ -1,7 +1,15 @@
-<h1>Bike</h1>
+<h1>Bikes</h1>
 
-<% for bike in @bikes %>
-<h2><%=bike.name() %></h2>
-<a href="/bikes/<%= bike.id %>">More info</a>
+<p><a href="/bike/new<%= %>">Add New Bike</a></p>
+
+<hr/>
+<% @bikes.each do |bike| %>
+<p>Bike: <%=bike.name() %></p>
+<p>Bike Size: <%=bike.size %></p>
+
+<p><a href="/bike/<%= bike.id %>/edit">Edit Bike</a></p>
+<form action="/bike/<%= bike.id%>/delete" method="POST">
+<input type="submit" value="Delete This Bike"/>
+</form>
 <hr/>
 <% end %>

@@ -1,21 +1,25 @@
 <h1>Start a new rental</h1>
-
-<form method="POST" action="/rentals">
+<form method="POST" action="/rental/">
   <label for="customer_id">Customer:</label>
   <select class="customer" name="customer_id">
     <% for customer in @customers %>
     <option value="<%=customer.id%>"><%=customer.name%></option>
     <% end %>
-  </select>>
+  </select>
+
+  <hr>
 
   <label for="bike_id">Bike:</label>
   <select class="bike" name="bike_id">
     <% for bike in @bikes %>
     <option value="<%=bike.id%>"><%=bike.name%></option>
     <% end %>
-  </select>>
+  </select>
 
+  <hr>
 
-  <input type="submit" value="Start rental">
+  <label for="rental_date">Date Rented:</label>
+  <input id="rental_date" name="rental_date" type="text"/>
 
+  <input type="submit" value="Start Rental">
 </form>

@@ -4,8 +4,7 @@ require_relative('./rental.rb')
 
 class Bike
 
-  attr_accessor :name, :size, :bike_available
-  attr_reader :id
+  attr_accessor :name, :size, :bike_available, :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -57,6 +56,20 @@ class Bike
 
     def self.all()
       sql = "SELECT * FROM bikes"
+      bike_data = SqlRunner.run(sql)
+      bikes = map_items(bike_data)
+      return bikes
+    end
+
+    def self.available()
+      sql = "SELECT * FROM bikes WHERE bike_available = true"
+      bike_data = SqlRunner.run(sql)
+      bikes = map_items(bike_data)
+      return bikes
+    end
+
+    def self.unavailable()
+      sql = "SELECT * FROM bikes WHERE bike_available = false"
       bike_data = SqlRunner.run(sql)
       bikes = map_items(bike_data)
       return bikes

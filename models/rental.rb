@@ -4,12 +4,13 @@ require_relative('./customer.rb')
 
 class Rental
 
-  attr_accessor :customer_id, :bike_id
+  attr_accessor :customer_id, :bike_id, :rental_date
   attr_reader :rental_id
 
   def initialize(options)
     @customer_id = options['customer_id'].to_i
     @bike_id = options['bike_id'].to_i
+    @rental_date = options['rental_date']
     @rental_id = options['rental_id'].to_i
   end
 
@@ -17,14 +18,15 @@ class Rental
     sql = "INSERT INTO rentals
     (
       customer_id,
-      bike_id
+      bike_id,
+      rental_date
     )
     VALUES
     (
-      $1, $2
+      $1, $2, $3
     )
     RETURNING rental_id"
-    values = [@customer_id, @bike_id]
+    values = [@customer_id, @bike_id, @rental_date]
     result = SqlRunner.run(sql, values)
     id = result.first['rental_id']
     @rental_id = id
@@ -35,13 +37,14 @@ class Rental
     SET
     (
       customer_id,
-      bike_id
+      bike_id,
+      rental_date
       ) =
       (
-        $1, $2
+        $1, $2, $3
       )
-      WHERE rental_id = $3"
-      values = [@customer_id, @bike_id, @rental_id]
+      WHERE rental_id = $4"
+      values = [@customer_id, @bike_id, @rental_date, @rental_id]
       SqlRunner.run(sql, values)
     end
 
@@ -95,6 +98,17 @@ class Rental
       bike_hash = results[0]
       bike = Bike.new(bike_hash)
       return bike
+    end
+
+    def bike_rented()
+      sql = "SELECT * FROM bikes
+      WHERE bike_available = false"
+      values = [@bike_id]
+      results = SqlRunner.run(sql, values)
+      bike_hash = results[0]
+      bike = Bike.new(bike_hash)
+      return bike
+
     end
 
   end

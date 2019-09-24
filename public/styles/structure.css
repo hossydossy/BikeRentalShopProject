@@ -1,27 +1,45 @@
 body {
-  background: black url('/images/background.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  color: papayawhip;
-  font-family: 'Merriweather', serif;
+  background: red url('/images/Mountain_biking.jpeg');
+  /* background-size: 100%; */
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: black;
+  font-family: 'Raleway', sans-serif;
   padding: 0px;
-  margin: 0px;
+  margin: 200px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Raleway', sans-serif;
   margin: 0px;
   padding: 0px;
+}
+
+p {
+    background-color: blue;
 }
 
 h1 {
   font-size: 1.8em;
-  color: darkred;
+  color: black;
+  font
   margin-bottom: 20px;
+  text-decoration: underline;
+  font-weight: bolder;
+  background-color: yellow;
+  text-align: center;
+
+}
+
+h2, h3, h4, h5, h6 {
+  border-left: 10px solid blue;
+  border-right: 10px solid blue;
+  padding-left: 25px;
+  background-color: blue;
 }
 
 a, a:link, a:visited {
-  color: #a2937e;
+  color: red;
   text-decoration: none;
 }
 
@@ -33,6 +51,7 @@ nav {
   padding: 0px;
   margin: 0px;
   padding-right: 25px;
+  background-color: green;
 }
 
 nav ul li {
@@ -42,23 +61,22 @@ nav ul li {
 
 ul {
   padding: 0px;
-  margin: 0px;
+  margin: 10px;
   list-style-type: none;
 }
 
 main {
-  padding: 25px;
+  padding: 100px;
 }
 
 .flex {
-  display: flex;
+  display: inline-flex;
 }
 
 .flex--row {
   flex-direction: row;
 }
 
-#content {
-  border-left: 1px solid darkred;
-  padding-left: 25px;
+label {
+    background-color: green;
 }

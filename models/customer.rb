@@ -4,29 +4,27 @@ require_relative('./rental.rb')
 
 class Customer
 
-  attr_accessor :first_name, :last_name, :address
+  attr_accessor :name, :address
   attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @first_name = options['first_name']
-    @last_name = options['last_name']
+    @name = options['name']
     @address = options['address']
   end
 
   def save()
     sql = "INSERT INTO customers
     (
-      first_name,
-      last_name,
+      name,
       address
     )
     VALUES
     (
-      $1, $2, $3
+      $1, $2
     )
     RETURNING id"
-    values = [@first_name, @last_name, @address]
+    values = [@name, @address]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -36,15 +34,14 @@ class Customer
     sql = "UPDATE customers
     SET
     (
-      first_name,
-      last_name,
+      name,
       address
       ) =
       (
-        $1, $2, $3
+        $1, $2
       )
-      WHERE id = $4"
-      values = [@first_name, @last_name, @address, @id]
+      WHERE id = $3"
+      values = [@name, @address, @id]
       SqlRunner.run(sql, values)
     end
 
@@ -75,13 +72,22 @@ class Customer
       return customer
     end
 
-    def format_name
-      return "#{@first_name.capitalize} #{@last_name.capitalize}"
-    end
-
     def self.delete_all()
       sql = "DELETE FROM customers"
       SqlRunner.run( sql )
+    end
+
+    def bikes()
+      sql = "SELECT bikes.* FROM bikes INNER JOIN rentals ON bikes.id = rentals.bike_id
+      WHERE customer_id = $1"
+      values = [@id]
+      results = SqlRunner.run(sql, values)
+      bikes = results.map{ |bike| Bike.new(bike)}
+      return bikes
+    end
+
+    def format_name
+      return "#{@name.capitalize}"
     end
 
   end

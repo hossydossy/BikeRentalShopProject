@@ -2,13 +2,13 @@
   border:0px none;
   border-radius: 3%;
   padding: 8px 12px;
-  color: papayawhip;
+  color: black;
   cursor:pointer;
-  font-family: 'Special Elite', cursive;
+  font-family: 'Raleway', sans-serif;
 }
 
 .btn--danger {
-  background-color: darkred;
+  background-color: red;
 }
 
 .btn--danger:hover {

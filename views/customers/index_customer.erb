@@ -1,7 +1,17 @@
 <h1>Customer</h1>
 
+
+<p><a href="/customer/new<%= %>">Add New Customer</a></p>
+
+<hr/>
 <% for customer in @customers %>
 <h2><%=customer.format_name() %></h2>
-<a href="/customers/ <%= customer.id %>">More info</a>
+<h2><%=customer.address() %></h2>
+<p><a href="/customer/<%=customer.id %>/edit">Edit Customer</a></p>
+<form action="/customer/<%= customer.id%>/delete" method="POST">
+<input type="submit" value="Delete This Customer"/>
+</form>
 <hr/>
+
+
 <% end %>

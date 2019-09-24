@@ -1,13 +1,11 @@
 <h1>EDIT A CUSTOMER</h1>
 
-<form method="POST" action="/customers/<%=@customer.id() %>">
-  <label for="first-name">First Name:</label>
-  <input id="first-name" name="first_name" type="text" value="<%=@customer.first_name%>"/>
-  <label for="last-name">Last Name:</label>
-  <input id="last-name" name="last_name" type="text" value="<%=@customer.last_name%>"/>
+<form method="POST" action="/customer/<%=@customer.id() %>">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text" value="<%=@customer.name%>"/>
   <label for="address">Address:</label>
   <input id="address" name="address" type="text" value="<%=@customer.address%>"/>
 
-  <input type="submit" value="Update student details">
+  <input type="submit" value="Update Customer Details">
 
 </form>

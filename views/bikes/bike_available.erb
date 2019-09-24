@@ -1,0 +1,9 @@
+<h1>Bikes Available</h1>
+
+
+<hr/>
+<% @bikes.each do |bike| %>
+<p>Bike: <%=bike.name() %></p>
+<p>Bike Size: <%=bike.size %></p>
+<hr>
+<% end %>
