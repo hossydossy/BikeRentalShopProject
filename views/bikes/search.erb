@@ -1,0 +1,9 @@
+<h1>Search for a Bike</h1>
+
+<form method="GET" action="/bike/execute_search/<%=@bike.name() %>">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text" value="<%=@bike.name%>"/>
+
+  <input type="submit" value="Search for Bike">
+
+</form>

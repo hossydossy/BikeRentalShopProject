@@ -88,6 +88,15 @@ class Bike
       return bike
     end
 
+    def self.search_by_name(name)
+      sql = "SELECT * FROM bikes
+      WHERE name = $1"
+      values = [name]
+      result = SqlRunner.run(sql, values)
+      bike = Bike.new(result.first)
+      return bike
+    end
+
     def self.delete_all()
       sql = "DELETE FROM bikes"
       SqlRunner.run( sql )

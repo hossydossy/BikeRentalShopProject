@@ -27,7 +27,7 @@ end
 
 get '/customer/:id/edit' do
   @customer = Customer.find(params[:id])
-    erb( :"customers/edit")
+  erb( :"customers/edit")
 end
 
 #SHOW - GET '/customers/:id' => individual customer
@@ -40,9 +40,9 @@ end
 #UPDATE - POST '/customers/:id' => update a customer in the db
 
 post '/customer/:id' do
-@customer = Customer.new(params)
-@customer.update()
-redirect('/customer/')
+  @customer = Customer.new(params)
+  @customer.update()
+  redirect('/customer/')
 end
 
 #CREATE - POST '/students' => save the new student to db

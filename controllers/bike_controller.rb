@@ -37,22 +37,32 @@ end
 
 get '/bike/:id/edit' do
   @bike = Bike.find(params[:id])
-    erb( :"bikes/edit")
+  erb( :"bikes/edit")
 end
 
 #SHOW - GET '/bikes/:id' => individual bike
+
+get '/bike/search' do
+  @bike = Bike.new(params)
+  erb( :"bikes/search")
+end
 
 get '/bike/:id' do
   @bike = Bike.find(params['id'].to_i)
   erb( :"bikes/show")
 end
 
+get '/bike/execute_search/' do
+  @bike = Bike.search_by_name(params['name'])
+  erb( :"bikes/show")
+end
+
 #UPDATE - POST '/bikes/:id' => update a bike in the db
 
 post '/bike/:id' do
-@bike = Bike.new(params)
-@bike.update()
-redirect('/bike/')
+  @bike = Bike.new(params)
+  @bike.update()
+  redirect('/bike/')
 end
 
 #CREATE - POST '/bikes' => save the new bike to db

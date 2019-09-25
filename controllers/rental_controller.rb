@@ -29,7 +29,7 @@ end
 
 get '/rental/:id/edit' do
   @rental = Rental.find(params[:id])
-    erb( :"rentals/edit")
+  erb( :"rentals/edit")
 end
 
 #SHOW - GET '/rentals/:id' => individual rental
@@ -42,9 +42,9 @@ end
 #UPDATE - POST '/rentals/:id' => update a rental in the db
 
 post '/rental/:id' do
-@rental = Rental.new(params)
-@rental.update()
-redirect('/rental')
+  @rental = Rental.new(params)
+  @rental.update()
+  redirect('/rental')
 end
 
 #CREATE - POST '/rentals' => save the new rental to db
